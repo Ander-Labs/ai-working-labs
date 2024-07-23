@@ -10,7 +10,6 @@ import ExperienceForm from "./ExperienceForm";
 import SkillsForm from "./SkillsForm";
 import ContractDetailsForm from "./ContractDetailsForm";
 import BenefitsForm from "./BenefitsForm";
-// import { JobFormInputs } from "@/types/JobFormInputs";
 import {JobFormInputs} from '@/schema/jobSchema'
 
 import {
