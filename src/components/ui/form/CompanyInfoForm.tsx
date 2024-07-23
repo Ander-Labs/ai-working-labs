@@ -1,13 +1,32 @@
 // src/components/ui/form/CompanyInfoForm.tsx
-import React from "react";
+import { useState, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Select,
+  Textarea,
+} from "@chakra-ui/react";
+import { getCountries } from "@/services/countryService";
 
 export default function CompanyInfoForm() {
   const {
     register,
     formState: { errors },
   } = useFormContext();
+
+  const [countries, setCountries] = useState<{ name: string; code: string }[]>(
+    []
+  );
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      const countriesData = await getCountries();
+      setCountries(countriesData);
+    };
+    fetchCountries();
+  }, []);
 
   return (
     <>
@@ -24,6 +43,19 @@ export default function CompanyInfoForm() {
           {...register("companyDescription")}
           placeholder="Descripción corta de la Empresa"
         />
+      </FormControl>
+      <FormControl isInvalid={!!errors.country}>
+        <FormLabel>País</FormLabel>
+        <Select
+          {...register("country")}
+          placeholder="Selecciona el pais de tu empresa"
+        >
+          {countries.map((country) => (
+            <option key={country.code} value={country.name}>
+              {country.name}
+            </option>
+          ))}
+        </Select>
       </FormControl>
     </>
   );

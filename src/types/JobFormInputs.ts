@@ -14,4 +14,3 @@ export interface JobFormInputs {
   salary: string;
   benefits: string[];
 }
-

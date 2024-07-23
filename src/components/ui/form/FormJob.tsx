@@ -1,6 +1,5 @@
 // src/components/ui/form/JobForm.tsx
 "use client";
-import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { Box, Button, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,7 +10,15 @@ import ExperienceForm from "./ExperienceForm";
 import SkillsForm from "./SkillsForm";
 import ContractDetailsForm from "./ContractDetailsForm";
 import BenefitsForm from "./BenefitsForm";
-import { JobFormInputs } from "@/types/JobFormInputs";
+// import { JobFormInputs } from "@/types/JobFormInputs";
+import {JobFormInputs} from '@/schema/jobSchema'
+
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 
 export default function FormJob() {
   const methods = useForm<JobFormInputs>({
@@ -19,7 +26,27 @@ export default function FormJob() {
   });
 
   const onSubmit = (data: JobFormInputs) => {
-    console.log(data);
+    try {
+      // Lógica para enviar los datos del formulario
+      console.log(data);
+      <Alert status="success">
+        <AlertIcon />
+        <AlertTitle>Formulario enviado!</AlertTitle>
+        <AlertDescription>
+          Los datos del formulario han sido enviados correctamente.
+        </AlertDescription>
+      </Alert>;
+    } catch (error) {
+      <Alert status="error">
+        <AlertIcon />
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription>
+          Ha ocurrido un error al enviar los datos del formulario.
+        </AlertDescription>
+      </Alert>;
+      console.error("Error al enviar los datos del formulario:", error);
+    }
+
     // Lógica para enviar los datos del formulario
   };
 
