@@ -1,16 +1,16 @@
 // src/components/ui/form/JobForm.tsx
 "use client";
+import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { Box, Button, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { jobSchema } from "@/schema/jobSchema";
+import { jobSchema, JobFormInputs } from "@/schema/jobSchema";
 import CompanyInfoForm from "./CompanyInfoForm";
 import ProfessionalDetailsForm from "./ProfessionalDetailsForm";
 import ExperienceForm from "./ExperienceForm";
 import SkillsForm from "./SkillsForm";
 import ContractDetailsForm from "./ContractDetailsForm";
 import BenefitsForm from "./BenefitsForm";
-import {JobFormInputs} from '@/schema/jobSchema'
 
 import {
   Alert,
@@ -26,8 +26,8 @@ export default function FormJob() {
 
   const onSubmit = (data: JobFormInputs) => {
     try {
-      // Lógica para enviar los datos del formulario
       console.log(data);
+      // Mostrar mensaje de éxito
       <Alert status="success">
         <AlertIcon />
         <AlertTitle>Formulario enviado!</AlertTitle>
@@ -36,6 +36,7 @@ export default function FormJob() {
         </AlertDescription>
       </Alert>;
     } catch (error) {
+      // Mostrar mensaje de error
       <Alert status="error">
         <AlertIcon />
         <AlertTitle>Error</AlertTitle>
@@ -45,8 +46,6 @@ export default function FormJob() {
       </Alert>;
       console.error("Error al enviar los datos del formulario:", error);
     }
-
-    // Lógica para enviar los datos del formulario
   };
 
   return (
@@ -67,3 +66,4 @@ export default function FormJob() {
     </FormProvider>
   );
 }
+

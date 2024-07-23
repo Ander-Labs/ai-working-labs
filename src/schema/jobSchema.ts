@@ -21,4 +21,4 @@ export const jobSchema = yup.object().shape({
   benefits: yup.array().of(yup.string()).required("Beneficios son requeridos"),
 });
 
-export interface JobFormInputs extends yup.InferType<typeof jobSchema> {}
+export type JobFormInputs = yup.InferType<typeof jobSchema>;
