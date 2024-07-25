@@ -1,6 +1,6 @@
 // src/components/ui/form/JobForm.tsx
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { Box, Button, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -24,26 +24,23 @@ export default function FormJob() {
     resolver: yupResolver(jobSchema),
   });
 
+  const [alertStatus, setAlertStatus] = useState<"success" | "error" | null>(
+    null
+  );
+  const [alertMessage, setAlertMessage] = useState<string>("");
+
   const onSubmit = (data: JobFormInputs) => {
     try {
       console.log(data);
-      // Mostrar mensaje de éxito
-      <Alert status="success">
-        <AlertIcon />
-        <AlertTitle>Formulario enviado!</AlertTitle>
-        <AlertDescription>
-          Los datos del formulario han sido enviados correctamente.
-        </AlertDescription>
-      </Alert>;
+      setAlertStatus("success");
+      setAlertMessage(
+        "Los datos del formulario han sido enviados correctamente."
+      );
     } catch (error) {
-      // Mostrar mensaje de error
-      <Alert status="error">
-        <AlertIcon />
-        <AlertTitle>Error</AlertTitle>
-        <AlertDescription>
-          Ha ocurrido un error al enviar los datos del formulario.
-        </AlertDescription>
-      </Alert>;
+      setAlertStatus("error");
+      setAlertMessage(
+        `Error al enviar los datos del formulario: ${(error as Error).message}`
+      );
       console.error("Error al enviar los datos del formulario:", error);
     }
   };
@@ -52,6 +49,20 @@ export default function FormJob() {
     <FormProvider {...methods}>
       <Box as="form" onSubmit={methods.handleSubmit(onSubmit)} p={4}>
         <VStack spacing={4}>
+          {alertStatus === "success" && (
+            <Alert status="success">
+              <AlertIcon />
+              <AlertTitle>Formulario enviado!</AlertTitle>
+              <AlertDescription>{alertMessage}</AlertDescription>
+            </Alert>
+          )}
+          {alertStatus === "error" && (
+            <Alert status="error">
+              <AlertIcon />
+              <AlertTitle>Error</AlertTitle>
+              <AlertDescription>{alertMessage}</AlertDescription>
+            </Alert>
+          )}
           <CompanyInfoForm />
           <ProfessionalDetailsForm />
           <ExperienceForm />
@@ -66,4 +77,3 @@ export default function FormJob() {
     </FormProvider>
   );
 }
-

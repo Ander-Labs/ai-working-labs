@@ -1,7 +1,15 @@
 // src/components/ui/form/ContractDetailsForm.tsx
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import { FormControl, FormLabel, Select, Input } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Select,
+  Input,
+  InputLeftElement,
+  InputGroup,
+  FormErrorMessage,
+} from "@chakra-ui/react";
 
 const ContractDetailsForm: React.FC = () => {
   const {
@@ -21,6 +29,9 @@ const ContractDetailsForm: React.FC = () => {
           <option value="office">Oficina</option>
           <option value="hybrid">Híbrido</option>
         </Select>
+        <FormErrorMessage>
+          {errors.workMode?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.contractDuration}>
         <FormLabel>Duración del Contrato</FormLabel>
@@ -33,10 +44,25 @@ const ContractDetailsForm: React.FC = () => {
           <option value="6-months">6 meses</option>
           <option value="annual">Anual</option>
         </Select>
+        <FormErrorMessage>
+          {errors.contractDuration?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.salary}>
         <FormLabel>Salario Ofrecido</FormLabel>
-        <Input {...register("salary")} placeholder="Salario Ofrecido" />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            color="gray.300"
+            fontSize="1.2em"
+          >
+            $
+          </InputLeftElement>
+          <Input {...register("salary")} placeholder="Salario Ofrecido" />
+        </InputGroup>
+        <FormErrorMessage>
+          {errors.salary?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
     </>
   );

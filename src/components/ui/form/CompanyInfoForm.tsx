@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import {
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Input,
   Select,
@@ -36,6 +37,9 @@ export default function CompanyInfoForm() {
           {...register("companyName")}
           placeholder="Nombre de la Empresa"
         />
+        <FormErrorMessage>
+          {errors.companyName?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.companyDescription}>
         <FormLabel>A qué se dedica la Empresa</FormLabel>
@@ -43,6 +47,9 @@ export default function CompanyInfoForm() {
           {...register("companyDescription")}
           placeholder="Descripción corta de la Empresa"
         />
+        <FormErrorMessage>
+          {errors.companyDescription?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.country}>
         <FormLabel>País</FormLabel>
@@ -56,6 +63,9 @@ export default function CompanyInfoForm() {
             </option>
           ))}
         </Select>
+        <FormErrorMessage>
+          {errors.country?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
     </>
   );

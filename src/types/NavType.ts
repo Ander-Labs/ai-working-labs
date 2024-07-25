@@ -1,3 +1,4 @@
+// src/types/NavType.ts
 export interface NavItems {
   name: string;
   href: string;
@@ -13,16 +14,12 @@ const NavType: NavItems[] = [
     href: "/about",
   },
   {
-    name: "Jobs",
-    href: "/jobs",
+    name: "Job Generator",
+    href: "/job-generator-ai",
   },
   {
     name: "Contact",
     href: "/contact",
-  },
-  {
-    name: "Admin",
-    href: "/admin",
   },
 ];
 

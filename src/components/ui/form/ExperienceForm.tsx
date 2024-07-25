@@ -1,7 +1,12 @@
 // src/components/ui/form/ExperienceForm.tsx
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import { FormControl, FormLabel, Select } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Select,
+  FormErrorMessage,
+} from "@chakra-ui/react";
 
 export default function ExperienceForm() {
   const {
@@ -20,6 +25,9 @@ export default function ExperienceForm() {
           <option value="true">Sí</option>
           <option value="false">No</option>
         </Select>
+        <FormErrorMessage>
+          {errors.hasExperience?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
 
       <FormControl isInvalid={!!errors.candidateLevel}>
@@ -32,6 +40,9 @@ export default function ExperienceForm() {
           <option value="semi-senior">Semi-Senior</option>
           <option value="senior">Senior</option>
         </Select>
+        <FormErrorMessage>
+          {errors.candidateLevel?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
     </>
   );

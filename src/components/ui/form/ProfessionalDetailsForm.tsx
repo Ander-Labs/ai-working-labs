@@ -1,7 +1,12 @@
 // src/components/ui/form/ProfessionalDetailsForm.tsx
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import { FormControl, FormLabel, Select } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Select,
+  FormErrorMessage,
+} from "@chakra-ui/react";
 import { roles } from "@/data/roles";
 import {categories} from '@/data/categories';
 
@@ -29,6 +34,9 @@ export default function ProfessionalDetailsForm() {
             </option>
           ))}
         </Select>
+        <FormErrorMessage>
+          {errors.category?.message?.toString()}
+        </FormErrorMessage>
       </FormControl>
 
       {selectedCategory && (
@@ -41,6 +49,9 @@ export default function ProfessionalDetailsForm() {
               </option>
             ))}
           </Select>
+          <FormErrorMessage>
+            {errors.role?.message?.toString()}
+          </FormErrorMessage>
         </FormControl>
       )}
 
@@ -56,6 +67,9 @@ export default function ProfessionalDetailsForm() {
                 </option>
               ))}
           </Select>
+          <FormErrorMessage>
+            {errors.subrole?.message?.toString()}
+          </FormErrorMessage>
         </FormControl>
       )}
     </>

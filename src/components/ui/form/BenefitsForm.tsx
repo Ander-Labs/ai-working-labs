@@ -1,8 +1,13 @@
 // src/components/ui/form/BenefitsForm.tsx
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import { FormControl, FormLabel, Select } from "@chakra-ui/react";
-import { benefits } from "@/data/benefits";
+import {
+  FormControl,
+  FormLabel,
+  Textarea,
+  FormErrorMessage,
+} from "@chakra-ui/react";
+
 
 export default function BenefitsForm() {
   const {
@@ -13,17 +18,13 @@ export default function BenefitsForm() {
   return (
     <FormControl isInvalid={!!errors.benefits}>
       <FormLabel>Beneficios que ofrece la Empresa</FormLabel>
-      <Select
+      <Textarea
         {...register("benefits")}
         placeholder="Selecciona los beneficios"
-        multiple
-      >
-        {benefits.map((benefit) => (
-          <option key={benefit} value={benefit}>
-            {benefit}
-          </option>
-        ))}
-      </Select>
+      ></Textarea>
+      <FormErrorMessage>
+        {errors.benefits?.message?.toString()}
+      </FormErrorMessage>
     </FormControl>
   );
 }

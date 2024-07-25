@@ -9,6 +9,7 @@ import {
   Button,
   List,
   ListItem,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import { skills } from "@/data/skills";
 import Clipboard from "clipboard";
@@ -54,10 +55,8 @@ export default function SkillsForm() {
   return (
     <FormControl isInvalid={!!errors.skills}>
       <FormLabel>Tecnologías o habilidades específicas</FormLabel>
-      <Input
-        placeholder="Ej: GitHub, Vercel, etc."
-        {...register("specificSkills")}
-      />
+      <Input placeholder="Ej: GitHub, Vercel, etc." {...register("skills")} />
+      <FormErrorMessage>{errors.skills?.message?.toString()}</FormErrorMessage>
       {filteredSkills.length > 0 && (
         <Box mt={4}>
           <FormLabel>Habilidades recomendadas</FormLabel>
