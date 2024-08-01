@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Working Labs
 
-First, run the development server:
+Este proyecto es una aplicación web desarrollada con Next.js que utiliza Chakra UI para el diseño, Vercel AI SDK para la integración de modelos de IA y lucide-react para los iconos. El propósito de la aplicación es permitir y facilitar a los usuarios la creacion de ofertas laborales para el sector tecnologico, para ello primero deberan rellenar un formulario con los datos de que tipo de candidato estan buscando luego balidar los datos y pasarcelo al modelo de IA para que genere laoferta laboral, el contenido de la oferta generanda de podra copiar fácilmente en el portapapeles.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+
+## Características
+
+- **Next.js**: Framework de React para aplicaciones del lado del servidor y del lado del cliente.
+- **Chakra UI**: Biblioteca de componentes de interfaz de usuario para React.
+- **Vercel AI SDK**: SDK para integrar modelos de IA.
+- **lucide-react**: Biblioteca de iconos.
+- **Zustand**: Biblioteca para gestionar el estado Global
+- **React-hook-form**: Para la gestion y validación de Formularios
+- **Firebase**: Autentificacion Y Base de datos
+
+## Requisitos
+
+- Node.js >= 14
+- npm o yarn
+
+## Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/Ander-Labs/ai-working-labs.git
+   cd ai-working-labs
+   ```
+
+2. Instala las dependencias:
+
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+
+## Uso
+
+1. Ejecuta la aplicación en modo de desarrollo:
+
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
+
+2. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
+
+## Estructura del Proyecto
+
+# Estructura del Proyecto
+
+```plaintext
+ai-working-labs/
+├── node_modules/
+├── public/
+│   ├── robots.txt
+├── src/
+│   │
+│   ├── app/
+│   │   ├── api/
+│   │   ├── about/
+│   │   ├── auth/
+│   │   ├── contact/
+│   │   ├── job-generator-ai
+│   │   ├── ChakraUIProviders.tsx
+│   │   ├── global.css
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   ├── components/
+│   │   ├── global/
+│   │   ├── Skeleton/
+│   │   ├── ui/
+│   │   │   ├── form/
+│   │   │   ├── ai/
+│   │   │   ├── home/
+│   │   │   ├── about/
+│   │   │   ├── contact/
+│   │   │   ├── auth/
+│   │   │   ├── bashboard/
+│   ├── config/
+│   ├── data/
+│   ├── Global/
+│   │   ├── useStore.ts
+│   ├── hooks/
+│   ├── schema/
+│   ├── services/
+│   │   ├── country/
+│   ├── types/
+│   ├── utils/
+│   │   ├── promptGenerator.ts
+├── env
+├── .gitignore
+├── next.config.mjs
+├── next-env.d.ts
+├── README.md
+├── package-lock.json
+├── package.json
+├── tsconfig.json
+├── ....
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts Disponibles
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `dev`: Inicia el servidor de desarrollo.
+- `build`: Compila la aplicación para producción.
+- `start`: Inicia la aplicación compilada.
 
-## Learn More
+## Contribuciones
 
-To learn more about Next.js, take a look at the following resources:
+Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request en GitHub.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Licencia
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

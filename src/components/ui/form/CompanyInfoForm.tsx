@@ -9,7 +9,7 @@ import {
   Select,
   Textarea,
 } from "@chakra-ui/react";
-import { getCountries } from "@/services/countryService";
+import { getCountries } from "@/services/country/countryService";
 
 export default function CompanyInfoForm() {
   const {
@@ -31,7 +31,7 @@ export default function CompanyInfoForm() {
 
   return (
     <>
-      <FormControl isInvalid={!!errors.companyName}>
+      <FormControl isInvalid={!!errors.companyName} mb={4}>
         <FormLabel>Nombre de la Empresa</FormLabel>
         <Input
           {...register("companyName")}
@@ -41,7 +41,7 @@ export default function CompanyInfoForm() {
           {errors.companyName?.message?.toString()}
         </FormErrorMessage>
       </FormControl>
-      <FormControl isInvalid={!!errors.companyDescription}>
+      <FormControl isInvalid={!!errors.companyDescription} mb={4}>
         <FormLabel>A qué se dedica la Empresa</FormLabel>
         <Textarea
           {...register("companyDescription")}
@@ -55,7 +55,7 @@ export default function CompanyInfoForm() {
         <FormLabel>País</FormLabel>
         <Select
           {...register("country")}
-          placeholder="Selecciona el pais de tu empresa"
+          placeholder="Selecciona el país de tu empresa"
         >
           {countries.map((country) => (
             <option key={country.code} value={country.name}>
