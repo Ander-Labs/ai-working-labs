@@ -1,14 +1,15 @@
 // src/components/ui/form/ProfessionalDetailsForm.tsx
-import React from "react";
 import { useFormContext } from "react-hook-form";
 import {
   FormControl,
   FormLabel,
   Select,
   FormErrorMessage,
+  FormHelperText,
+  Stack,
 } from "@chakra-ui/react";
 import { roles } from "@/data/roles";
-import {categories} from '@/data/categories';
+import { categories } from "@/data/categories";
 
 export default function ProfessionalDetailsForm() {
   const {
@@ -21,22 +22,18 @@ export default function ProfessionalDetailsForm() {
   const selectedRole = watch("role");
 
   return (
-    <>
+    <Stack spacing={4}>
       <FormControl isInvalid={!!errors.category}>
         <FormLabel>Categoría Profesional</FormLabel>
-        <Select
-          {...register("category")}
-          placeholder="Selecciona una categoría"
-        >
+        <Select {...register("category")} placeholder="Selecciona una categoría">
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
               {category.name}
             </option>
           ))}
         </Select>
-        <FormErrorMessage>
-          {errors.category?.message?.toString()}
-        </FormErrorMessage>
+        <FormHelperText>Selecciona la categoría que mejor describe tu área profesional.</FormHelperText>
+        <FormErrorMessage>{errors.category?.message?.toString()}</FormErrorMessage>
       </FormControl>
 
       {selectedCategory && (
@@ -49,9 +46,8 @@ export default function ProfessionalDetailsForm() {
               </option>
             ))}
           </Select>
-          <FormErrorMessage>
-            {errors.role?.message?.toString()}
-          </FormErrorMessage>
+          <FormHelperText>Selecciona el rol específico dentro de la categoría seleccionada.</FormHelperText>
+          <FormErrorMessage>{errors.role?.message?.toString()}</FormErrorMessage>
         </FormControl>
       )}
 
@@ -67,11 +63,10 @@ export default function ProfessionalDetailsForm() {
                 </option>
               ))}
           </Select>
-          <FormErrorMessage>
-            {errors.subrole?.message?.toString()}
-          </FormErrorMessage>
+          <FormHelperText>Selecciona la especialidad específica dentro del rol seleccionado.</FormHelperText>
+          <FormErrorMessage>{errors.subrole?.message?.toString()}</FormErrorMessage>
         </FormControl>
       )}
-    </>
+    </Stack>
   );
 }

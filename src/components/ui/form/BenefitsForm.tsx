@@ -1,13 +1,13 @@
 // src/components/ui/form/BenefitsForm.tsx
-import React from "react";
+
 import { useFormContext } from "react-hook-form";
 import {
   FormControl,
   FormLabel,
   Textarea,
   FormErrorMessage,
+  FormHelperText,
 } from "@chakra-ui/react";
-
 
 export default function BenefitsForm() {
   const {
@@ -20,11 +20,10 @@ export default function BenefitsForm() {
       <FormLabel>Beneficios que ofrece la Empresa</FormLabel>
       <Textarea
         {...register("benefits")}
-        placeholder="Selecciona los beneficios"
+        placeholder="Describe los beneficios que la empresa ofrece"
       ></Textarea>
-      <FormErrorMessage>
-        {errors.benefits?.message?.toString()}
-      </FormErrorMessage>
+      <FormHelperText>Incluye beneficios como seguro de salud, vacaciones, etc.</FormHelperText>
+      <FormErrorMessage>{errors.benefits?.message?.toString()}</FormErrorMessage>
     </FormControl>
   );
 }

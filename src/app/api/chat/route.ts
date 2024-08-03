@@ -3,7 +3,7 @@
 import { convertToCoreMessages, streamText, StreamData } from "ai";
 import { createOpenAI as createGroq } from "@ai-sdk/openai";
 import { z } from "zod";
-import { generatePrompt } from "@/utils/promptGenerator";
+import { generatePrompt } from "@/services/prompt/promptGenerator";
 
 const groq = createGroq({
   baseURL: "https://api.groq.com/openai/v1",
@@ -16,20 +16,18 @@ export const maxDuration = 30;
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-
   // Create a stream data object
-    const data = new StreamData();
-    data.append({ test: "value" });
+  const data = new StreamData();
+  data.append({ test: "value" });
 
-  const prompt= generatePrompt(data);
-  
+  const prompt = generatePrompt(data);
 
   const result = await streamText({
     model: groq("llama-3.1-70b-versatile"),
     prompt,
-   
+
     // tools: {
-      
+
     // } ,
 
     messages: convertToCoreMessages(messages),
@@ -38,5 +36,5 @@ export async function POST(req: Request) {
     },
   });
 
-   return result.toAIStreamResponse({ data });
+  return result.toAIStreamResponse({ data });
 }
