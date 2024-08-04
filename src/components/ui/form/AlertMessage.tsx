@@ -13,7 +13,7 @@ export default function AlertMessage({ alertStatus, alertMessage }: AlertProps) 
   const toast = useToast()
 
   useEffect(() => {
-    if (alertStatus) {
+    if (alertStatus && alertMessage) {
       toast({
         title: alertStatus === "success" ? "Formulario Validado!" : "Error",
         description: alertMessage,
@@ -27,7 +27,6 @@ export default function AlertMessage({ alertStatus, alertMessage }: AlertProps) 
   }, [alertStatus, alertMessage, toast]);
 
   return null;
-
 
 };
 

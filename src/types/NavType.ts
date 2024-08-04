@@ -18,6 +18,10 @@ const NavType: NavItems[] = [
     href: "/job-generator-ai",
   },
   {
+    name: "Docs",
+    href: "/docs",
+  },
+  {
     name: "Contact",
     href: "/contact",
   },

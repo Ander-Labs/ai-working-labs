@@ -8,7 +8,6 @@ export default function Home() {
       <h2 className="text-3xl font-bold text-center">Welcome Working Labs</h2>
       <FormJob />
       {/* <ChatAI /> */}
-      {/* <Gemini15Flash /> */}
       <ChatLlama />
     </>
   );
