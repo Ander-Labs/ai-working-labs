@@ -13,7 +13,7 @@ import MessagesUI from './messagesUI';
 export const maxDuration = 30;
 
 export default function ChatLlama() {
-    const { messages, handleSubmit, input, handleInputChange, error, reload } = useChat({ api: '/api/llama', keepLastMessageOnError: true });
+    const { messages, handleSubmit, input, handleInputChange, error, reload, isLoading } = useChat({ api: '/api/llama', keepLastMessageOnError: true });
 
     const { prompt } = useStore();
 
@@ -33,7 +33,7 @@ export default function ChatLlama() {
             )}
 
             {messages.map((m, i) => (
-                <MessagesUI key={i} i={i} m={m} />
+                <MessagesUI key={i} i={i} m={m} isLoading={isLoading} />
             ))}
 
             <Box p={4} w={'100%'} mt={8}>

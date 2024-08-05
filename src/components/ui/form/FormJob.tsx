@@ -21,8 +21,9 @@ import ExperienceForm from "./ExperienceForm";
 import SkillsForm from "./SkillsForm";
 import ContractDetailsForm from "./ContractDetailsForm";
 import BenefitsForm from "./BenefitsForm";
+import AlertMessage from "./AlertMessage"
 // import utils
-import { generatePrompt } from "@/utils/promptGenerator";
+import { generatePrompt } from "@/services/prompt/promptGenerator";
 
 // Import GlobalStore
 import { useStore } from "@/Global/useStore";
@@ -50,15 +51,7 @@ export default function FormJob() {
 
   return (
     <>
-      {alertStatus && (
-        <Alert status={alertStatus}>
-          <AlertIcon />
-          <AlertTitle>
-            {alertStatus === "success" ? "Formulario Validado!" : "Error"}
-          </AlertTitle>
-          <AlertDescription>{alertMessage}</AlertDescription>
-        </Alert>
-      )}
+      {alertStatus && <AlertMessage alertStatus={alertStatus} alertMessage={alertMessage} />}
       <FormProvider {...methods} >
         <Box
           as="form"
