@@ -8,6 +8,7 @@ const groq = createOpenAI({
   baseURL: "https://api.groq.com/openai/v1",
 });
 
+console.log("GROQ_API_KEY:", process.env.GROQ_API_KEY);
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
