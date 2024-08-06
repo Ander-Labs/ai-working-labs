@@ -7,7 +7,7 @@ const Data: any = new Date().getFullYear().toString();
 export default function Footer() {
   return (
     <>
-      <footer>
+      <footer >
         <Box
           bg="black"
           w="100%"

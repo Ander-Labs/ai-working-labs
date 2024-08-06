@@ -8,9 +8,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 // imports CHAKRA UI
 import {
   Box, Button, VStack, Stack, Select, Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription, Flex, Container, Text
 } from "@chakra-ui/react";
 // import SCHEMA and components form
 import { jobSchema, JobFormInputs } from "@/schema/jobSchema";
@@ -27,6 +24,7 @@ import { generatePrompt } from "@/services/prompt/promptGenerator";
 
 // Import GlobalStore
 import { useStore } from "@/Global/useStore";
+import { useFormStore } from "@/Global/useFormStore"; 
 
 
 export default function FormJob() {
@@ -35,6 +33,7 @@ export default function FormJob() {
   });
   const [alertStatus, setAlertStatus] = useState<"success" | "error" | null>(null);
   const [alertMessage, setAlertMessage] = useState<string>("");
+  const setFormValidated = useFormStore(state => state.setFormValidated); 
   const { setPrompt } = useStore();
 
   const onSubmit = (data: JobFormInputs) => {
@@ -43,6 +42,7 @@ export default function FormJob() {
       setPrompt(prompt);
       setAlertStatus("success");
       setAlertMessage("Los datos del formulario han sido Validados correctamente.");
+      setFormValidated(true);
     } catch (error) {
       setAlertStatus("error");
       setAlertMessage(`Error al Validar los datos del formulario: ${(error as Error).message}`);

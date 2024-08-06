@@ -6,7 +6,7 @@ import "./globals.css";
 import { ChakraUIProviders } from "./ChakraUIProviders";
 
 // Global Components
-import Nav from "@/components/global/nav";
+// import Nav from "@/components/global/nav";
 import Footer from "@/components/global/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={inter.className}>
         <ChakraUIProviders>
-          <Nav />
+          {/* <Nav /> */}
           {children}
           <Footer />
         </ChakraUIProviders>
