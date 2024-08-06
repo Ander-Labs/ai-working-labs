@@ -18,8 +18,7 @@ Este proyecto es una aplicación web desarrollada con Next.js que utiliza Chakra
 ## Requisitos
 
 - Node.js >= 14
-- npm o yarn
-
+- npm 
 ## Instalación
 
 1. Clona el repositorio:
