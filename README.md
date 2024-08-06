@@ -1,5 +1,5 @@
 
-# Working Labs
+# Working Labs (Version Alpha)
 
 Este proyecto es una aplicación web desarrollada con Next.js que utiliza Chakra UI para el diseño, Vercel AI SDK para la integración de modelos de IA y lucide-react para los iconos. El propósito de la aplicación es permitir y facilitar a los usuarios la creacion de ofertas laborales para el sector tecnologico, para ello primero deberan rellenar un formulario con los datos de que tipo de candidato estan buscando luego balidar los datos y pasarcelo al modelo de IA para que genere laoferta laboral, el contenido de la oferta generanda de podra copiar fácilmente en el portapapeles.
 
