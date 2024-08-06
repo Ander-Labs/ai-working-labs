@@ -58,7 +58,7 @@ export default function ChatLlama() {
             )}
             <Box w={'100%'} display={'flex'} justifyContent={'center'} >
                 <Box
-                    maxH="500px"
+                    maxH="450px"
                     overflowY="auto"
                     w="100%"
                     p={4}
