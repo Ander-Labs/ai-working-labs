@@ -33,8 +33,7 @@ Este proyecto es una aplicación web desarrollada con Next.js que utiliza Chakra
 
    ```bash
    npm install
-   # o
-   yarn install
+
    ```
 
 ## Uso
@@ -43,8 +42,7 @@ Este proyecto es una aplicación web desarrollada con Next.js que utiliza Chakra
 
    ```bash
    npm run dev
-   # o
-   yarn dev
+
    ```
 
 2. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
